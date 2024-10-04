@@ -44,7 +44,7 @@
 | 2.   | [rotation_angle_detection.ipynb](https://github.com/IliaShi/donor_search/blob/main/rotation_angle_detection.ipynb) | Тетрадка с основным решением |
 | 3.   | [data_preparation.ipynb](https://github.com/IliaShi/donor_search/blob/main/data_preparation.ipynb) | Тетрадка для подготовки датасета из исходных фотографий   |
 | 4.   | [experiments.ipynb](https://github.com/IliaShi/donor_search/blob/main/experiments.ipynb) | Тетрадка с экспериментами и поиском решения   |
-| 5.   | [own_functions.py](https://github.com/IliaShi/donor_search/blob/main/own_functions.py) | Собственные функции для файла final  |
+| 5.   | [own_functions.py](https://github.com/IliaShi/donor_search/blob/main/own_functions.py) | Собственные функции для файла rotation_angle_detection  |
 | 6.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/requirements.txt) | Список всех библиотек и их версии, необходимых для установки в виртуальной среде для запуска кода проекта   |
 | 7.   | [Dockerfile](https://github.com/IliaShi/donor_search/blob/main/app/Dockerfile) | Докер-файл для запуска приложения
 | 8.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/app/requirements.txt) | Список всех библиотек и их версии, необходимых для установки в виртуальной среде для запуска приложения в Докере |
