@@ -9,11 +9,11 @@ import os
 # Константы
 CLASSES = {0:'0', 1:'090', 2:'180', 3:'270'}
 
-# Определение архитектуры модели
-class ResNetCLF(nn.Module):
+# Определение модели
+class VGGCLF(nn.Module):
     def __init__(self):
         super().__init__()
-        self.resnet = torchvision.models.resnet50(pretrained=True)
+        self.resnet = torchvision.models.vgg11(pretrained=True)
         for param in self.resnet.parameters():
             param.requires_grad = False
         layers = list(self.resnet.children())
@@ -61,7 +61,7 @@ def predict(path: str, inp_size: int, device_: str):
     image = transform(image)
 
     # Загружаем модель
-    model = ResNetCLF()
+    model = VGGCLF()
     model.to(device_)
     model.load_state_dict(torch.load('src/models/model_rn.pth', map_location=torch.device(device_)))
 
