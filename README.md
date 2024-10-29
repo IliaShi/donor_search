@@ -1,25 +1,35 @@
 # Классификация изображений для сервиса DonorSearch.
 
 ## Описание проекта
-**Заказчик**
-Благотворительная организация [DonorSearch](https://donorsearch.org/), занимается продвижением донорства в РФ. На платформе для доноров доступны бонусная программа, игрофикация пути донора и многое другое. Важной является проверка честности доноров и корректности внесенных донаций. Подтверждение производится по справке установленной формы (№405), такую справку донор получает в центре крови и загружает в личный кабинет в формате изображения. На следующем этапе  с помощью сервиса OCR (optical character recognition) происходит распознавание табличной информации на бланке справки. Существующая версия сервиса требует вертикальной ориентации справки.
+**Заказчик**: благотворительная организация [DonorSearch](https://donorsearch.org/), занимается продвижением донорства в РФ. На платформе DonorSearch для доноров доступны бонусная программа, игрофикация пути донора и многое другое. Важной является проверка честности доноров и корректности внесенных донаций. Подтверждение производится по справке установленной формы (№405), такую справку донор получает в центре крови и загружает в личный кабинет в формате изображения. На следующем этапе  с помощью сервиса OCR (optical character recognition) происходит распознавание табличной информации на бланке справки. Существующая версия сервиса требует вертикальной ориентации справки.
 
-### Цель
+## Цель
+Разработать модель для определения ориентации справки и автоматического поворота ее в нормальное положение.  
+Условия технического задания:
+* предполагается классификация изображений на 4 класса в зависимости от угла поворота (0, 90, 180, 270 градусов).  
+* необходимо создать микросервис на базе Docker, входные данные - путь к изображению, выхоные данные - np.array или Pillow.Image.
+* инференс на CPU. 
+* метрика - accuracy, пороговое значение не установлено. 
+* также необходимо построить ROC-кривые и матрицу ошибок для лучшей модели.
 
-Целью данного проекта является разработать модель определения ориентации справки и автоматического поворота ее в нормальное положение перед запуском сервиса OCR (optical character recognition).
+## Структура репозитория:
 
-### **Инструкции по использованию:**
-Для того, чтобы корректно работать с данным проектом, необходимо:
-```
-- Для классификации изображений: выгрузить файлы data_preparation.ipynb, rotation_angle_detection.ipynb, own_functions.py, requirements.txt
+| #    | Наименование файла                | Описание   |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1.   | [README.md](https://github.com/IliaShi/donor_search/blob/main/README.md) | Представлена основная информация по проекту и его результатах |
+| 2.   | [rotation_angle_detection.ipynb](https://github.com/IliaShi/donor_search/blob/main/rotation_angle_detection.ipynb) | Тетрадка с основным решением |
+| 3.   | [data_preparation.ipynb](https://github.com/IliaShi/donor_search/blob/main/data_preparation.ipynb) | Тетрадка для подготовки датасета |
+| 4.   | [experiments.ipynb](https://github.com/IliaShi/donor_search/blob/main/experiments.ipynb) | Тетрадка с экспериментами и поиском решения |
+| 5.   | [own_functions.py](https://github.com/IliaShi/donor_search/blob/main/own_functions.py) | Собственные функции для файла rotation_angle_detection.ipynb  |
+| 6.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/requirements.txt) | Список всех библиотек и их версии, необходимых для установки в виртуальной среде для запуска кода проекта |
+| 7.   | [Dockerfile](https://github.com/IliaShi/donor_search/blob/main/app/Dockerfile) | Докер-файл для запуска приложения |
+| 8.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/app/requirements.txt) | Список зависимостей |
+| 9.   | [app.py](https://github.com/IliaShi/donor_search/blob/main/app/scr/app.py) |Скрипт для запуска приложения |
+|10.   | [model.py](https://github.com/IliaShi/donor_search/blob/main/app/scr/app.py) |Запуск сохраненной модели лучшего решения |
 
-- Для запуска приложения через Docker:выгрузить requirements.txt, app.py, Dockerfile.
+## Данные
 
-```
-
-### Исходные данные
-
- Датасет из 173 справок различного формата, включая справку 405 с таблицей.
+Датасет из 173 справок различного формата, включая справку 405 с таблицей.
 
 ### Метрика и условия: 
 - Метрика оценки модели для многоклассовой классификации– Accuracy.
@@ -36,20 +46,6 @@
 
 Создание микросервиса для последующей интеграции в продукт заказчика. 
 
-## Структура репозитория:
-
-| #    | Наименование файла                | Описание   |
-| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1.   | [README.md](https://github.com/IliaShi/donor_search/blob/main/README.md) | Представлена основная информация по проекту и его результатах   |
-| 2.   | [rotation_angle_detection.ipynb](https://github.com/IliaShi/donor_search/blob/main/rotation_angle_detection.ipynb) | Тетрадка с основным решением |
-| 3.   | [data_preparation.ipynb](https://github.com/IliaShi/donor_search/blob/main/data_preparation.ipynb) | Тетрадка для подготовки датасета из исходных фотографий   |
-| 4.   | [experiments.ipynb](https://github.com/IliaShi/donor_search/blob/main/experiments.ipynb) | Тетрадка с экспериментами и поиском решения   |
-| 5.   | [own_functions.py](https://github.com/IliaShi/donor_search/blob/main/own_functions.py) | Собственные функции для файла rotation_angle_detection  |
-| 6.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/requirements.txt) | Список всех библиотек и их версии, необходимых для установки в виртуальной среде для запуска кода проекта   |
-| 7.   | [Dockerfile](https://github.com/IliaShi/donor_search/blob/main/app/Dockerfile) | Докер-файл для запуска приложения
-| 8.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/app/requirements.txt) | Список всех библиотек и их версии, необходимых для установки в виртуальной среде для запуска приложения в Докере |
-| 9.   | [app.py](https://github.com/IliaShi/donor_search/blob/main/app/scr/app.py) |Скрипт для запуска приложения |
-|10.   | [model.py](https://github.com/IliaShi/donor_search/blob/main/app/scr/app.py) |Запуск сохраненной модели лучшего решения |
 
 
 ## Итоги
