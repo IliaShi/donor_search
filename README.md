@@ -22,9 +22,9 @@
 | 3.   | [data_preparation.ipynb](https://github.com/IliaShi/donor_search/blob/main/data_preparation.ipynb) | Тетрадка для подготовки датасета |
 | 4.   | [experiments.ipynb](https://github.com/IliaShi/donor_search/blob/main/experiments.ipynb) | Тетрадка с экспериментами и поиском решения |
 | 5.   | [own_functions.py](https://github.com/IliaShi/donor_search/blob/main/own_functions.py) | Собственные функции для файла rotation_angle_detection.ipynb  |
-| 6.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/requirements.txt) | Список всех библиотек и их версии, необходимых для установки в виртуальной среде для запуска кода проекта |
+| 6.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/requirements.txt) | Список зависимостей для проекта |
 | 7.   | [Dockerfile](https://github.com/IliaShi/donor_search/blob/main/app/Dockerfile) | Докер-файл для запуска приложения |
-| 8.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/app/requirements.txt) | Список зависимостей |
+| 8.   | [requirements.txt](https://github.com/IliaShi/donor_search/blob/main/app/requirements.txt) | Список зависимостей для Docker-файла |
 | 9.   | [app.py](https://github.com/IliaShi/donor_search/blob/main/app/scr/app.py) |Скрипт для запуска приложения |
 
 ## Данные
