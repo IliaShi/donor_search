@@ -66,13 +66,15 @@
 Завершён.
 
 ## Стэк:
-- PyTorch - для работы с Deep Learning моделями
-- Numpy для математических операций
-- matplotlib и seaborn - для визуализации данных.
-- Pillow, Open-CV для работы с изображениями
-- Scikit-learn для расчета метрик и обработки результатов
-- FastApi для создания интерфейса модели
-- Docker для создания микросервиса
+- PyTorch 
+- numpy 
+- matplotlib
+- seaborn 
+- pillow
+- open-cv
+- scikit-learn 
+- fastapi 
+- docker 
 
 ## Команда проекта
 - [Илья Широких](https://github.com/IliaShi)
